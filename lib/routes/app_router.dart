@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/feature_app_settings/pages/app_settings_page.dart';
 import 'package:flutter_boilerplate/feature_auth/pages/login_page.dart';
+import 'package:flutter_boilerplate/feature_course_details/pages/course_details_screen.dart';
 import 'package:flutter_boilerplate/feature_dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/available_courses_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/badges_page.dart';
@@ -24,7 +25,6 @@ import 'package:flutter_boilerplate/routes/route_observer.dart';
 import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_boilerplate/feature_course_details/pages/course_details_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -66,7 +66,7 @@ class AppRouter {
         GoRoute(
           path: AppRoutes.posts,
           pageBuilder: (context, state) =>
-              const NoTransitionPage(child: PostsPage()),
+          const NoTransitionPage(child: PostsPage()),
         ),
 
         // Set base URL screen (added on main)
@@ -187,10 +187,10 @@ class AppRouter {
 
   /// Build error page for routing errors
   static Widget _buildErrorPage(
-    BuildContext context,
-    Exception? error,
-    String location,
-  ) {
+      BuildContext context,
+      Exception? error,
+      String location,
+      ) {
     return Scaffold(
       appBar: AppBar(title: const Text(AppStrings.labelError)),
       body: Center(
