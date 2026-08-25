@@ -58,7 +58,6 @@ class AppRouter {
         // Posts Routes (JSONPlaceholder CRUD demo)
         GoRoute(
           path: AppRoutes.posts,
-          name: AppRoutes.posts,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: PostsPage()),
         ),
