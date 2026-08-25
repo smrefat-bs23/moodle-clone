@@ -37,6 +37,16 @@ class AppConstants {
 
   /// User ID key in storage
   static const String userIdKey = 'user_id';
+
+  /// Saved Moodle site URL key in storage — set once the user confirms a
+  /// site from the Set Base URL flow; distinct from [tokenKey], which is
+  /// cleared on log out while this key is not.
+  static const String siteUrlKey = 'site_url';
+
+  /// Persisted username key in storage — set alongside [tokenKey] on a
+  /// successful login so the Reconnect screen can re-authenticate without
+  /// asking for it again.
+  static const String usernameKey = 'username';
 }
 
 /// App brand colors

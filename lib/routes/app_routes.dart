@@ -103,4 +103,12 @@ abstract class AppRoutes {
 
   /// Help route
   static const String help = '/help';
+
+  /// Set Base URL route — the "Connect to Moodle" screen. Owns its own
+  /// path now; previously incorrectly shared '/' with [splash].
+  static const String setBaseUrl = '/set-base-url';
+
+  /// Reconnect route — shown when a site is saved but the user is logged
+  /// out (e.g. after Log out), asking only for the password.
+  static const String reconnect = '/reconnect';
 }
