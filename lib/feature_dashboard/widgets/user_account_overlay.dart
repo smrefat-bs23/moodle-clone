@@ -213,6 +213,7 @@ class UserAccountOverlay extends StatelessWidget {
                         core.AppConstants.tokenKey,
                       );
                   if (!context.mounted) return;
+                  Navigator.of(context).pop(); // Close overlay
                   context.go(AppRoutes.reconnect);
                 },
                 style: ElevatedButton.styleFrom(
