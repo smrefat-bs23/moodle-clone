@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/feature_dashboard/widgets/user_account_overlay.dart';
 import 'package:flutter_boilerplate/feature_more/widgets/more_avatar.dart';
 import 'package:flutter_boilerplate/feature_more/widgets/more_blog_item.dart';
 import 'package:flutter_boilerplate/feature_more/widgets/more_bottom_nav.dart';
@@ -53,12 +54,40 @@ class MorePage extends StatelessWidget {
           padding: EdgeInsets.only(right: AppSpacing.md.w),
           child: MoreAvatar(
             name: 'Student User',
-            onTap: () {
-              // User Profile navigation placeholder
-            },
+            onTap: () => _showUserAccountOverlay(context),
           ),
         ),
       ],
+    );
+  }
+
+  /// Shows the shared [UserAccountOverlay], sliding in from the right —
+  /// same presentation as the dashboard header's avatar tap.
+  void _showUserAccountOverlay(BuildContext context) {
+    showGeneralDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: 'UserAccount',
+      barrierColor: Colors.black54,
+      transitionDuration: const Duration(milliseconds: 300),
+      pageBuilder: (context, anim1, anim2) {
+        return Align(
+          alignment: Alignment.centerRight,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.85,
+            child: const UserAccountOverlay(),
+          ),
+        );
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(anim1),
+          child: child,
+        );
+      },
     );
   }
 

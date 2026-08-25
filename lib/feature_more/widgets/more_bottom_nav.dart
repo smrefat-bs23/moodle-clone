@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 /// Custom bottom navigation bar for the "More" screen.
 ///
@@ -30,30 +32,22 @@ class MoreBottomNav extends StatelessWidget {
                 _buildNavItem(
                   icon: Icons.speed,
                   isActive: false,
-                  onTap: () {
-                    // TODO(Nadim): Navigate to Dashboard
-                  },
+                  onTap: () => context.pushNamed(AppRoutes.dashboard),
                 ),
                 _buildNavItem(
                   icon: Icons.school,
                   isActive: false,
-                  onTap: () {
-                    // TODO(Nadim): Navigate to Courses
-                  },
+                  onTap: () => context.pushNamed(AppRoutes.myCourses),
                 ),
                 _buildNavItem(
                   icon: Icons.forum,
                   isActive: false,
-                  onTap: () {
-                    // TODO(Nadim): Navigate to Chat
-                  },
+                  onTap: () => context.pushNamed(AppRoutes.messages),
                 ),
                 _buildNavItem(
                   icon: Icons.notifications,
                   isActive: false,
-                  onTap: () {
-                    // TODO(Nadim): Navigate to Notifications
-                  },
+                  onTap: () => context.pushNamed(AppRoutes.notifications),
                 ),
                 _buildNavItem(
                   icon: Icons.more_horiz,
