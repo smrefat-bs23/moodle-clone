@@ -7,7 +7,6 @@ import 'package:flutter_boilerplate/feature_dashboard/pages/available_courses_pa
 import 'package:flutter_boilerplate/feature_dashboard/pages/badges_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/blog_entries_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/calendar_page.dart';
-import 'package:flutter_boilerplate/feature_dashboard/pages/calendar_settings_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/dashboard_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/details_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/messages_page.dart';
@@ -111,18 +110,6 @@ class AppRouter {
           name: AppRoutes.calendar,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: CalendarPage()),
-        ),
-        GoRoute(
-          path: AppRoutes.calendarSettings,
-          name: AppRoutes.calendarSettings,
-          pageBuilder: (context, state) =>
-              const NoTransitionPage(child: CalendarSettingsPage()),
-        ),
-        GoRoute(
-          path: AppRoutes.calendarReminderSettings,
-          name: AppRoutes.calendarReminderSettings,
-          pageBuilder: (context, state) =>
-              const NoTransitionPage(child: ReminderSettingsPage()),
         ),
         GoRoute(
           path: AppRoutes.availableCourses,
