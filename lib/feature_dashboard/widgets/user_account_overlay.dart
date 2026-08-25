@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate/feature_dashboard/utils/app_colors.dart';
 import 'package:flutter_boilerplate/feature_dashboard/utils/app_constants.dart';
+import 'package:flutter_boilerplate/src/injection/di.dart' as di;
+import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart'
+    as core;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -205,8 +208,13 @@ class UserAccountOverlay extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w - 4),
               child: ElevatedButton(
-                onPressed: () =>
-                    _showNotImplemented(context, 'Log out'),
+                onPressed: () async {
+                  await di.getIt<core.LocalStorage>().remove(
+                        core.AppConstants.tokenKey,
+                      );
+                  if (!context.mounted) return;
+                  context.go(AppRoutes.reconnect);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.red,
                   minimumSize: Size(double.infinity, 48.h),
