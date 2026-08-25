@@ -9,7 +9,11 @@ import 'package:flutter_boilerplate/feature_set_base_url/widgets/site_info.dart'
 import 'package:flutter_boilerplate/feature_set_base_url/widgets/suggestion/connect_to_your_site_tile.dart';
 import 'package:flutter_boilerplate/feature_set_base_url/widgets/suggestion/site_verification_card.dart';
 import 'package:flutter_boilerplate/feature_set_base_url/widgets/suggestion/suggestion_list_placeholder.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
+import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
+import 'package:flutter_boilerplate_domain/feature_set_base_url/entities/site_suggestion_entity.dart';
+import 'package:go_router/go_router.dart';
 
 /// Orchestrator widget that ties the existing [SiteInfo] input field to
 /// the [SiteSuggestionCubit] and renders a [SiteVerificationCard]
@@ -91,7 +95,12 @@ class SiteVerificationSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ConnectToYourSiteTile(typedValue: query),
+              ConnectToYourSiteTile(
+                typedValue: query,
+                onTap: suggestions.isNotEmpty
+                    ? () => _onConnect(context, suggestions.first)
+                    : null,
+              ),
               if (suggestions.isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.md),
                 SiteVerificationCard(suggestion: suggestions.first),
@@ -120,6 +129,27 @@ class SiteVerificationSection extends StatelessWidget {
           ),
         ),
     };
+  }
+
+  Future<void> _onConnect(
+    BuildContext context,
+    SiteSuggestionEntity suggestion,
+  ) async {
+    await di.getIt<LocalStorage>().set<String>(
+          AppConstants.siteUrlKey,
+          suggestion.siteUrl,
+        );
+    if (!context.mounted) return;
+
+    final (token, _) =
+        await di.getIt<LocalStorage>().get<String>(AppConstants.tokenKey);
+    if (!context.mounted) return;
+
+    if (token != null && token.isNotEmpty) {
+      context.go(AppRoutes.dashboard);
+    } else {
+      context.go(AppRoutes.login);
+    }
   }
 }
 
