@@ -50,6 +50,7 @@ class DetailsPage extends StatelessWidget {
                       Divider(height: AppSpacing.lg.h),
                       _buildComplianceRow(course, safeSp),
                       Divider(height: AppSpacing.lg.h),
+                      _buildEnterCourseButton(context, safeSp),
                     ],
                   ),
                 ),
@@ -241,6 +242,33 @@ class DetailsPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildEnterCourseButton(
+    BuildContext context,
+    double Function(double) safeSp,
+  ) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () => context.pushNamed(AppRoutes.courseOverview),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.moodleOrange,
+          padding: EdgeInsets.symmetric(vertical: AppSpacing.md.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppSize.radiusSm.r),
+          ),
+        ),
+        child: Text(
+          'Enter course',
+          style: TextStyle(
+            fontSize: safeSp(AppFontSize.lg),
+            fontWeight: FontWeight.w600,
+            color: AppColors.white,
+          ),
+        ),
       ),
     );
   }
