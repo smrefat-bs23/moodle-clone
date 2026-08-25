@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 
 class ReconnectHeader extends StatelessWidget {
   const ReconnectHeader({super.key});
@@ -36,7 +38,7 @@ class ReconnectHeader extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.pushNamed(AppRoutes.help),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(
               minWidth: AppSize.headerIconButtonSize,

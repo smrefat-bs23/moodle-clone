@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 
 class ReconnectQrButton extends StatelessWidget {
   const ReconnectQrButton({super.key});
@@ -10,7 +12,7 @@ class ReconnectQrButton extends StatelessWidget {
       width: double.infinity,
       height: AppSize.buttonHeight,
       child: OutlinedButton(
-        onPressed: () {},
+        onPressed: () => context.pushNamed(AppRoutes.qrScanner),
         style: OutlinedButton.styleFrom(
           elevation: AppSize.elevationNone,
           backgroundColor: Colors.white,

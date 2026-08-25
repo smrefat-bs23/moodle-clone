@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key, required this.isEnabled});
+  const LoginButton({
+    super.key,
+    required this.isEnabled,
+    required this.onPressed,
+  });
 
   final bool isEnabled;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,7 @@ class LoginButton extends StatelessWidget {
       width: double.infinity,
       height: AppSize.buttonHeight,
       child: ElevatedButton(
-        onPressed: isEnabled ? () {} : null,
+        onPressed: isEnabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: isEnabled
               ? const Color(0xFFF9A865)
