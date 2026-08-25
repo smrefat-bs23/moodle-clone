@@ -276,6 +276,30 @@ class AppStrings {
   static const String featureCustomReports = 'Custom reports';
   static const String featureCompetencies = 'Competencies';
   static const String featureGlobalSearch = 'Global search';
+
+  /// Reconnect screen
+  static const String lostPassword = 'Lost password?';
+
+  /// Login
+  static const String login = 'Log in';
+
+  /// Password field
+  static const String password = 'Password';
+
+  /// Reconnect title
+  static const String reconnect = 'Reconnect';
+
+  /// Reconnect site name
+  static const String siteName = 'eLearning23';
+
+  /// Reconnect site URL
+  static const String siteUrl = 'https://lmsmobile.ahnafmuttaki.com';
+
+  /// User initials
+  static const String userInitials = 'SU';
+
+  /// User name
+  static const String userName = 'Student User';
 }
 
 /// Spacing constants for consistent padding/margins
@@ -323,6 +347,15 @@ class AppSpacing {
   static const double xlSm = 22;
   static const double xlMd = 34;
   static const double xxlSm = 44;
+
+  /// Custom spacing (28), used by the reconnect screen
+  static const double lgMd = 28;
+
+  /// Custom spacing (30), used by the reconnect screen
+  static const double lgXs = 30;
+
+  /// Tiny spacing (0.2), used by the reconnect screen
+  static const double tiny = 0.2;
 }
 
 /// Duration constants for timeouts, debounce, and animations.
@@ -473,4 +506,25 @@ class AppSize {
   static const double verificationIconSm = 14;
   static const double verificationIconMd = 16;
   static const double verificationIconLg = 20;
+
+  /// Reconnect screen sizes
+  static const double radiusXs = 2;
+  static const double forgotPasswordUnderlineWidth = 98;
+  static const double textMd = 16;
+  static const double textSm = 15;
+  static const double textXs = 14;
+  static const double letterSpacingSm = 1;
+  static const double elevationNone = 0;
+  static const double suffixIconMinSize = 36;
+  static const double iconSplashRadius = 18;
+  static const double passwordUnderlineWidth = 0.7;
+  static const double passwordFocusedUnderlineWidth = 1.1;
+  static const double headerIconButtonSize = 32;
+  static const double headerIconSize = 22;
+  static const double headerTitleSize = 20;
+  static const double headerLetterSpacing = -0.2;
+  static const double logoTitleSize = 19;
+  static const double borderWidth = 1;
+  static const double avatarSize = 78;
+  static const double avatarInitialSize = 24;
 }
