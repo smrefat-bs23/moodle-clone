@@ -14,10 +14,11 @@ class LoginState with _$LoginState {
   /// Success state after a valid Moodle login response.
   ///
   /// Parameterless on purpose: the existing `LoginPage` consumes this state
-  /// as `state.whenOrNull(success: () => context.go(AppRoutes.posts))`. The
-  /// obtained token is persisted to `LocalStorage` before this state is
-  /// emitted so subsequent requests can authenticate via
-  /// `AuthInterceptor`.
+  /// as `state.whenOrNull(success: () => context.go(AppRoutes.dashboard))`.
+  /// The obtained token (and username) is persisted to `LocalStorage`
+  /// before this state is emitted so subsequent requests can authenticate
+  /// via `AuthInterceptor`, and so a later Reconnect can re-use the
+  /// username.
   const factory LoginState.success() = LoginSuccess;
 
   /// Error state with a descriptive message.

@@ -25,7 +25,7 @@ class LoginPageScaffold extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         state.whenOrNull(
-          success: () => context.go(AppRoutes.posts),
+          success: () => context.go(AppRoutes.dashboard),
           error: (message) => ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(message),

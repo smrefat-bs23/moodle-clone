@@ -45,7 +45,7 @@ class LoginCubit extends Cubit<LoginState> {
       return;
     }
 
-    await _persistToken(token);
+    await _persistCredentials(token, username);
     emit(const LoginSuccess());
   }
 
@@ -61,16 +61,25 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginError(message: message));
   }
 
-  /// Persists the obtained token (if any) under [AppConstants.tokenKey].
+  /// Persists the obtained token (if any) under [AppConstants.tokenKey],
+  /// and the [username] under [AppConstants.usernameKey] so the Reconnect
+  /// screen can re-authenticate later without asking for it again.
   ///
   /// Best-effort: a storage failure is intentionally swallowed because the
   /// user has already authenticated and we'd rather complete the navigation
   /// than show a confusing error for a failed cache write.
-  Future<void> _persistToken(LoginTokenEntity? token) async {
+  Future<void> _persistCredentials(
+    LoginTokenEntity? token,
+    String username,
+  ) async {
     if (token == null) return;
     await di.getIt<LocalStorage>().set<String>(
           AppConstants.tokenKey,
           token.token,
+        );
+    await di.getIt<LocalStorage>().set<String>(
+          AppConstants.usernameKey,
+          username,
         );
   }
 
