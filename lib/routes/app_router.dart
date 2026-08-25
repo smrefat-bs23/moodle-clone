@@ -25,6 +25,7 @@ import 'package:flutter_boilerplate/routes/route_observer.dart';
 import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_boilerplate/feature_notification/pages/notification_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -54,6 +55,13 @@ class AppRouter {
           name: AppRoutes.login,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: LoginPage()),
+        ),
+
+        GoRoute(
+          path: AppRoutes.notification,
+          name: AppRoutes.notification,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: NotificationScreen()),
         ),
 
         // Posts Routes (JSONPlaceholder CRUD demo)
