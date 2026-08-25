@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 
 class HelpLink extends StatelessWidget {
   const HelpLink({super.key});
@@ -8,10 +10,7 @@ class HelpLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: InkWell(
-        onTap: () {
-          // Tap-only: no navigation. The InkWell ripple still plays so
-          // the user gets visual feedback that the link was tapped.
-        },
+        onTap: () => context.pushNamed(AppRoutes.help),
         borderRadius: BorderRadius.circular(AppSize.helpBorderRadius),
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: AppSize.helpVerticalPadding),

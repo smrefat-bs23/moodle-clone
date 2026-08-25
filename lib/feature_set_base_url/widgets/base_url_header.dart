@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 
 class BaseUrlHeader extends StatelessWidget {
   const BaseUrlHeader({this.showBackButton = false, super.key});
@@ -50,10 +52,7 @@ class BaseUrlHeader extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {
-              // Tap-only: no navigation. The ripple / press state still
-              // plays so the button feels responsive.
-            },
+            onPressed: () => context.pushNamed(AppRoutes.baseUrlSettings),
             splashRadius: AppSize.splashRadius,
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature_set_base_url/widgets/qr_info_dialog.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate_core/utils/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 
 class QrScanButton extends StatelessWidget {
   const QrScanButton({super.key});
@@ -11,11 +12,7 @@ class QrScanButton extends StatelessWidget {
       width: double.infinity,
       height: AppSize.qrButtonHeight,
       child: OutlinedButton.icon(
-        onPressed: () {
-          // Tap-only: do NOT navigate to the QR scanner page —
-          // just show the informational dialog and dismiss.
-          QrInfoDialog.show(context);
-        },
+        onPressed: () => context.pushNamed(AppRoutes.qrScanner),
         icon: const Icon(
           Icons.qr_code_2,
           size: AppSize.qrIconSize,
