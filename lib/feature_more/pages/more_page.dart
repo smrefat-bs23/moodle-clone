@@ -16,20 +16,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// Tags, and App Settings. It is highly modularized for future extensibility.
 class MorePage extends StatelessWidget {
   /// Creates an instance of [MorePage].
-  const MorePage({super.key});
+  const MorePage({super.key, this.embedded = false});
+
+  /// Whether the page is rendered inside another [Scaffold] — the
+  /// Dashboard shell already supplies an app bar, bottom nav, and the
+  /// account-overlay entry point (its floating avatar arrow) for every
+  /// embedded tab, so this page's own versions of those are skipped.
+  final bool embedded;
 
   @override
   Widget build(BuildContext context) {
+    final body = Column(
+      children: [
+        _buildTopMenu(),
+        const Spacer(),
+        _buildSettingsSection(),
+      ],
+    );
+
+    if (embedded) {
+      return ColoredBox(color: Colors.white, child: body);
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: _buildAppBar(context),
-      body: Column(
-        children: [
-          _buildTopMenu(),
-          const Spacer(),
-          _buildSettingsSection(),
-        ],
-      ),
+      body: body,
       bottomNavigationBar: const MoreBottomNav(),
     );
   }

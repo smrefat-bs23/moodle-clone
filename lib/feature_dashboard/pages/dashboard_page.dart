@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/feature_dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/messages_page.dart';
-import 'package:flutter_boilerplate/feature_dashboard/pages/more_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/my_courses_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/notifications_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/widgets/available_courses_card.dart';
@@ -12,6 +11,7 @@ import 'package:flutter_boilerplate/feature_dashboard/widgets/dashboard_header.d
 import 'package:flutter_boilerplate/feature_dashboard/widgets/dashboard_tabs.dart';
 import 'package:flutter_boilerplate/feature_dashboard/widgets/timeline_card.dart';
 import 'package:flutter_boilerplate/feature_dashboard/widgets/user_account_overlay.dart';
+import 'package:flutter_boilerplate/feature_more/pages/more_page.dart';
 import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate/feature_dashboard/utils/app_colors.dart';
