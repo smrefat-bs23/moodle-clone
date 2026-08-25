@@ -3,7 +3,9 @@ import 'package:flutter_boilerplate/feature_dashboard/pages/search_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/widgets/user_account_overlay.dart';
 import 'package:flutter_boilerplate/feature_dashboard/utils/app_colors.dart';
 import 'package:flutter_boilerplate/feature_dashboard/utils/app_constants.dart';
+import 'package:flutter_boilerplate/routes/app_routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 /// A custom header widget for the dashboard.
 class DashboardHeader extends StatelessWidget implements PreferredSizeWidget {
@@ -39,6 +41,14 @@ class DashboardHeader extends StatelessWidget implements PreferredSizeWidget {
               builder: (_) => const SearchPage(),
             ),
           ),
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.notifications_none,
+            color: AppColors.black87,
+            size: AppSize.iconMdLg.w,
+          ),
+          onPressed: () => context.pushNamed(AppRoutes.notifications),
         ),
         GestureDetector(
           onTap: () {
