@@ -192,7 +192,11 @@ class AppRouter {
           name: AppRoutes.details,
           builder: (context, state) {
             final courseId = state.uri.queryParameters['courseId'];
-            return DetailsPage(courseId: courseId);
+            return BlocProvider(
+              create: (_) => di.getIt<DashboardCubit>()
+                ..fetchDashboardCourses(),
+              child: DetailsPage(courseId: courseId),
+            );
           },
         ),
         GoRoute(
