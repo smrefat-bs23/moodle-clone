@@ -18,6 +18,7 @@ import 'package:flutter_boilerplate/feature_dashboard/pages/user_details_page.da
 import 'package:flutter_boilerplate/feature_more/pages/more_page.dart';
 import 'package:flutter_boilerplate/feature_notification/pages/notification_screen.dart';
 import 'package:flutter_boilerplate/feature_post/pages/posts_page.dart';
+import 'package:flutter_boilerplate/feature_reconnect/pages/reconnect_page.dart';
 import 'package:flutter_boilerplate/feature_set_base_url/pages/app_settings_page.dart'
     as base_url_settings;
 import 'package:flutter_boilerplate/feature_set_base_url/pages/help_page.dart';
@@ -54,7 +55,7 @@ class AppRouter {
         // Splash Route
         GoRoute(
           path: AppRoutes.splash,
-          builder: (context, state) => const SplashPage(),
+          builder: (context, state) => SplashPage(isLoggedIn: isLoggedIn),
         ),
 
         // Auth Routes
@@ -93,12 +94,20 @@ class AppRouter {
               const NoTransitionPage(child: CourseOverviewScreen()),
         ),
 
-        // Set base URL screen (added on main)
         // Set Base URL Route (Connect to Moodle)
         GoRoute(
-          path: AppRoutes.splash,
+          path: AppRoutes.setBaseUrl,
+          name: AppRoutes.setBaseUrl,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: SetBaseUrlPage()),
+        ),
+
+        // Reconnect Route — site saved, user logged out.
+        GoRoute(
+          path: AppRoutes.reconnect,
+          name: AppRoutes.reconnect,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: ReconnectPage()),
         ),
 
         // App Settings Route
@@ -209,17 +218,20 @@ class AppRouter {
         // Set Base URL feature routes (gear icon / help / QR scanner)
         GoRoute(
           path: AppRoutes.qrScanner,
+          name: AppRoutes.qrScanner,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: QrScannerPage()),
         ),
         GoRoute(
           path: AppRoutes.baseUrlSettings,
+          name: AppRoutes.baseUrlSettings,
           pageBuilder: (context, state) => const NoTransitionPage(
             child: base_url_settings.AppSettingsPage(),
           ),
         ),
         GoRoute(
           path: AppRoutes.help,
+          name: AppRoutes.help,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: HelpPage()),
         ),
