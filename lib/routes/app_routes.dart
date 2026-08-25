@@ -7,6 +7,8 @@ abstract class AppRoutes {
   AppRoutes._();
 
   // Auth routes
+  static const String courseDetails = '/course-details';
+
   /// Splash screen route
   static const String splash = '/';
 

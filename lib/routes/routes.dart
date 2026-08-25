@@ -1,5 +1,5 @@
 /// Routes library
-/// 
+///
 /// Exports all routing-related classes including router configuration,
 /// route constants, and route observers.
 library routes;

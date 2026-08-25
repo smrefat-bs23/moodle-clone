@@ -49,6 +49,19 @@ class AppBrandColors {
 
 /// String constants used throughout the app
 class AppStrings {
+  static const String courseTitle = 'Celebrating Cultures';
+  static const String courseCategory = 'Our Community';
+  static const String courseSummary = 'Course summary';
+  static const String teachers = 'Teachers';
+  static const String progress = '27%';
+  static const String courseStartDate = 'Course start date ';
+  static const String courseStartTime = 'December 18 2013,\n11:00 PM';
+  static const String courseDescription =
+      'An informal, optional module for Mount Orange students, staff and auxiliaries to celebrate and showcase the diversity of our traditions, languages and landscapes.';
+  static const String teacherInitials = 'JS';
+  static const String teacherName = 'Jeffrey Sanders';
+  static const String courseBanner = 'assets/images/course_banner.png';
+
   /// Error messages
   static const String errorGeneral = 'An unexpected error occurred';
   static const String errorSomethingWentWrong = 'Oops! Something went wrong';

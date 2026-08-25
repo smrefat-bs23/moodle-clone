@@ -24,6 +24,7 @@ import 'package:flutter_boilerplate/routes/route_observer.dart';
 import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_boilerplate/feature_course_details/pages/course_details_screen.dart';
 
 class AppRouter {
   AppRouter._();
@@ -56,6 +57,12 @@ class AppRouter {
         ),
 
         // Posts Routes (JSONPlaceholder CRUD demo)
+        GoRoute(
+          path: AppRoutes.courseDetails,
+          name: AppRoutes.courseDetails,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: CourseDetailsScreen()),
+        ),
         GoRoute(
           path: AppRoutes.posts,
           pageBuilder: (context, state) =>

@@ -27,10 +27,7 @@ class ErrorHandler {
   }
 
   /// Show error snackbar
-  static void showErrorSnackbar(
-    BuildContext context,
-    AppFailure failure,
-  ) {
+  static void showErrorSnackbar(BuildContext context, AppFailure failure) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(failure.message),

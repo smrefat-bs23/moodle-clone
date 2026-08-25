@@ -75,10 +75,7 @@ class ErrorScreen extends StatelessWidget {
                   SizedBox(height: AppSpacing.sm.h),
                   SelectableText(
                     error,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontFamily: 'monospace',
-                    ),
+                    style: TextStyle(fontSize: 12.sp, fontFamily: 'monospace'),
                   ),
                   if (stackTrace != null) ...[
                     SizedBox(height: AppSpacing.md.h),

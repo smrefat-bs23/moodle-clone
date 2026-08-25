@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
             title: FlavorConfig.instance.appName,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
+            themeMode: ThemeMode.light,
             routerConfig: AppRouter.getRouter(
               isLoggedIn: () async {
                 try {
@@ -73,9 +74,9 @@ class MyApp extends StatelessWidget {
             ),
             builder: (context, child) {
               return MediaQuery(
-                data: MediaQuery.of(context).copyWith(
-                  textScaler: TextScaler.noScaling,
-                ),
+                data: MediaQuery.of(
+                  context,
+                ).copyWith(textScaler: TextScaler.noScaling),
                 child: child!,
               );
             },

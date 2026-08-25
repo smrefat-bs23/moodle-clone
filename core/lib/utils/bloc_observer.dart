@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Global observer for all BLoC/Cubit state changes
-/// 
+///
 /// Helps track state transitions and errors across the application.
 class SimpleBlocObserver extends BlocObserver {
   @override
@@ -18,10 +18,9 @@ class SimpleBlocObserver extends BlocObserver {
 
   @override
   void onTransition(
-    Bloc<dynamic, dynamic> bloc, 
+    Bloc<dynamic, dynamic> bloc,
     Transition<dynamic, dynamic> transition,
-  ) 
-  {
+  ) {
     super.onTransition(bloc, transition);
     // Can add logging or analytics here
   }

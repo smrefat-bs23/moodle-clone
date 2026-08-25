@@ -10,7 +10,6 @@ part 'post_cubit.freezed.dart';
 class PostState with _$PostState {
   /// Initial state
   const factory PostState.initial() = PostInitial;
-  
 
   /// Loading state (initial fetch)
   const factory PostState.loading() = PostLoading;
@@ -46,12 +45,12 @@ class PostCubit extends Cubit<PostState> {
     required UpdatePostUseCase updatePostUseCase,
     required PatchPostUseCase patchPostUseCase,
     required DeletePostUseCase deletePostUseCase,
-  })  : _getPostsUseCase = getPostsUseCase,
-        _createPostUseCase = createPostUseCase,
-        _updatePostUseCase = updatePostUseCase,
-        _patchPostUseCase = patchPostUseCase,
-        _deletePostUseCase = deletePostUseCase,
-        super(const PostInitial());
+  }) : _getPostsUseCase = getPostsUseCase,
+       _createPostUseCase = createPostUseCase,
+       _updatePostUseCase = updatePostUseCase,
+       _patchPostUseCase = patchPostUseCase,
+       _deletePostUseCase = deletePostUseCase,
+       super(const PostInitial());
 
   final GetPostsUseCase _getPostsUseCase;
   final CreatePostUseCase _createPostUseCase;
@@ -60,10 +59,10 @@ class PostCubit extends Cubit<PostState> {
   final DeletePostUseCase _deletePostUseCase;
 
   List<PostEntity> get _currentPosts => switch (state) {
-        PostLoaded(:final posts) => posts,
-        PostMutating(:final posts) => posts,
-        _ => const [],
-      };
+    PostLoaded(:final posts) => posts,
+    PostMutating(:final posts) => posts,
+    _ => const [],
+  };
 
   /// Fetch all posts (GET)
   Future<void> fetchPosts() async {

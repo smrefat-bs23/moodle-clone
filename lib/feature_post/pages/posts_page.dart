@@ -54,10 +54,8 @@ class _PostsPageBody extends StatelessWidget {
                       ),
                     ],
                   ),
-                  error: (message, canRetry) => _ErrorView(
-                    message: message,
-                    canRetry: canRetry,
-                  ),
+                  error: (message, canRetry) =>
+                      _ErrorView(message: message, canRetry: canRetry),
                 ),
               ),
             ),
@@ -115,8 +113,7 @@ class _PostList extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             child: Icon(Icons.delete, color: colorScheme.onError),
           ),
-          onDismissed: (_) =>
-              context.read<PostCubit>().deletePost(post.id!),
+          onDismissed: (_) => context.read<PostCubit>().deletePost(post.id!),
           child: ListTile(
             title: Text(
               post.title,

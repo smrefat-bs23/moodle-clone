@@ -4,11 +4,7 @@ import 'package:flutter_boilerplate/core/error_boundary/error_screen.dart';
 /// Widget that catches and displays errors gracefully
 class ErrorBoundary extends StatefulWidget {
   /// Creates an error boundary
-  const ErrorBoundary({
-    required this.child,
-    this.onError,
-    super.key,
-  });
+  const ErrorBoundary({required this.child, this.onError, super.key});
 
   /// Child widget to wrap
   final Widget child;
