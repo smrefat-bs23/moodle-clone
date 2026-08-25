@@ -60,6 +60,9 @@ class MyApp extends StatelessWidget {
             title: FlavorConfig.instance.appName,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
+            // Pin to light theme so the Moodle app always renders with
+            // a light background and dark text — matching the official
+            // Moodle mobile app. The dark theme is not used in this app.
             themeMode: ThemeMode.light,
             routerConfig: AppRouter.getRouter(
               isLoggedIn: () async {

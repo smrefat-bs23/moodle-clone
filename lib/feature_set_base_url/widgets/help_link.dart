@@ -8,7 +8,10 @@ class HelpLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          // Tap-only: no navigation. The InkWell ripple still plays so
+          // the user gets visual feedback that the link was tapped.
+        },
         borderRadius: BorderRadius.circular(AppSize.helpBorderRadius),
         child: const Padding(
           padding: EdgeInsets.symmetric(vertical: AppSize.helpVerticalPadding),

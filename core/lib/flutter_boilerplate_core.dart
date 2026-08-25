@@ -1,5 +1,8 @@
 // Failures
 // Base classes
+export 'package:dio/dio.dart' show CancelToken, DioError, DioErrorType;
+export 'utils/error/moodle_error_parser.dart';
+
 export 'utils/base/base_bloc.dart';
 export 'utils/base/base_event.dart';
 export 'utils/base/base_state.dart';

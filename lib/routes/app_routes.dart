@@ -91,4 +91,16 @@ abstract class AppRoutes {
 
   /// Server error route
   static const String serverError = '/server-error';
+
+  // Set Base URL feature routes
+  /// QR code scanner route
+  static const String qrScanner = '/qr-scanner';
+
+  /// App settings route reached from the gear icon on the Set Base URL
+  /// screen (pre-login) — distinct from [appSettings], the post-login
+  /// App Settings screen reachable from the More page.
+  static const String baseUrlSettings = '/base-url-settings';
+
+  /// Help route
+  static const String help = '/help';
 }

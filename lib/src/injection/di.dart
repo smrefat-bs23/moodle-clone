@@ -14,9 +14,12 @@ import 'package:flutter_boilerplate/feature_auth/domain/repositories/login_repos
 import 'package:flutter_boilerplate/feature_auth/domain/usecases/login_usecase.dart';
 import 'package:flutter_boilerplate/feature_dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter_boilerplate/feature_post/cubit/post_cubit.dart';
+import 'package:flutter_boilerplate/feature_set_base_url/cubit/site_suggestion_cubit.dart';
 import 'package:flutter_boilerplate_core/utils/injection/di.dart' as core_di;
 import 'package:flutter_boilerplate_data/feature_post/datasources/post_remote_datasource.dart';
 import 'package:flutter_boilerplate_data/feature_post/repositories/post_repository_impl.dart';
+import 'package:flutter_boilerplate_data/feature_set_base_url/datasources/site_suggestion_remote_datasource.dart';
+import 'package:flutter_boilerplate_data/feature_set_base_url/repositories/site_suggestion_repository_impl.dart';
 import 'package:flutter_boilerplate_domain/flutter_boilerplate_domain.dart';
 import 'package:get_it/get_it.dart';
 
@@ -94,5 +97,23 @@ Future<void> configureDependencies([String? environment]) async {
     )
     ..registerFactory<DashboardCubit>(
       DashboardCubit.new,
+    )
+    ..registerLazySingleton<SiteSuggestionRemoteDatasource>(
+      () => SiteSuggestionRemoteDatasourceImpl(
+        dio: getIt<Dio>(),
+      ),
+    )
+    ..registerLazySingleton<SiteSuggestionRepository>(
+      () => SiteSuggestionRepositoryImpl(
+        remoteDatasource: getIt<SiteSuggestionRemoteDatasource>(),
+      ),
+    )
+    ..registerFactory<GetSiteSuggestionUseCase>(
+      () => GetSiteSuggestionUseCase(getIt<SiteSuggestionRepository>()),
+    )
+    ..registerFactory<SiteSuggestionCubit>(
+      () => SiteSuggestionCubit(
+        getSiteSuggestionUseCase: getIt<GetSiteSuggestionUseCase>(),
+      ),
     );
 }

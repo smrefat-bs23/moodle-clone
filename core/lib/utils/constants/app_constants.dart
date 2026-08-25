@@ -135,8 +135,8 @@ class AppStrings {
   static const String emptyNoPosts = 'No posts';
   static const String bannerDemo =
       'Demo API: creates/edits/deletes are accepted by the server but '
-      'never actually persist. The list resets to the original 100 '
-      'posts on every refresh.';
+      'never actually persist. Local edits stay visible across refreshes '
+      'thanks to optimistic updates.';
 
   /// Save label
   static const String labelSave = 'Save';
@@ -215,6 +215,67 @@ class AppStrings {
   static const String needHelp = 'Need help?';
   static const String scanQrCode = 'Scan QR code';
   static const String or = 'OR';
+  static const String pleaseSelectYourAccount = 'Please select your account:';
+  static const String connectToYourSite = 'Connect to your site';
+
+  /// Site suggestion search
+  static const String suggestionSectionTitle = 'Suggested site';
+  static const String suggestionLoadingLabel = 'Looking up site...';
+  static const String suggestionEmptyLabel = 'No matching site found';
+  static const String suggestionEmptyHint =
+      'Type the address of your Moodle site to see suggestions.';
+  static const String suggestionErrorLabel =
+      'Couldn\u2019t reach this site. Check the URL or your connection.';
+  static const String suggestionRetryLabel = 'Retry';
+  static const String suggestionAuthenticatedBadge = 'Signed in';
+  static const String suggestionGuestBadge = 'Guest';
+  static const String suggestionSignedInAs = 'Signed in as';
+  static const String suggestionGuestSession = 'Guest session';
+  static const String suggestionSiteLabel = 'Site';
+  static const String suggestionVersionLabel = 'Version';
+  static const String suggestionVersionUnavailable = '\u2014';
+
+  /// Site verification card regions.
+  static const String verificationSiteRegion = 'Site';
+  static const String verificationSessionRegion = 'Session';
+  static const String verificationCapabilitiesRegion = 'Capabilities';
+  static const String verificationStorageRegion = 'Storage';
+  static const String verificationServerRegion = 'Server';
+  static const String verificationWebServicesRegion = 'Web Services';
+  static const String verificationRegionBadge = 'Admin';
+  static const String verificationRegionPolicyRequired =
+      'Policy agreement required';
+  static const String verificationRegionPolicyAgreed = 'Policy agreed';
+  static const String verificationRegionLanguage = 'Language';
+  static const String verificationRegionSiteId = 'Site ID';
+  static const String verificationRegionCalendar = 'Calendar';
+  static const String verificationRegionConcurrentLogins =
+      'Concurrent logins';
+  static const String verificationRegionConcurrentLoginsUnlimited =
+      'Unlimited';
+  static const String verificationRegionBuild = 'Build';
+  static const String verificationRegionWebServiceSummary =
+      'web service functions enabled';
+  static const String verificationRegionViewFunctions = 'View functions';
+  static const String verificationRegionQuota = 'Quota';
+  static const String verificationRegionMaxFileSize = 'Max upload size';
+  static const String verificationRegionDownloads = 'Downloads';
+  static const String verificationRegionUploads = 'Uploads';
+  static const String verificationRegionDownloadsAllowed = 'Allowed';
+  static const String verificationRegionDownloadsBlocked = 'Blocked';
+  static const String verificationRegionTheme = 'Theme';
+
+  /// Feature chip labels (for `advancedfeatures[]`).
+  static const String featureMessaging = 'Messaging';
+  static const String featureCompletion = 'Completion tracking';
+  static const String featureBadges = 'Badges';
+  static const String featureNotes = 'Notes';
+  static const String featureBlogs = 'Blogs';
+  static const String featureTags = 'Tags';
+  static const String featureComments = 'Comments';
+  static const String featureCustomReports = 'Custom reports';
+  static const String featureCompetencies = 'Competencies';
+  static const String featureGlobalSearch = 'Global search';
 }
 
 /// Spacing constants for consistent padding/margins
@@ -262,6 +323,28 @@ class AppSpacing {
   static const double xlSm = 22;
   static const double xlMd = 34;
   static const double xxlSm = 44;
+}
+
+/// Duration constants for timeouts, debounce, and animations.
+class AppDuration {
+  /// Private constructor — use the static members instead.
+  const AppDuration._();
+
+  /// Debounce window for the Base URL search input.
+  ///
+  /// Wider than the original 500 ms because
+  /// `core_webservice_get_site_info` does not accept a query parameter —
+  /// it always returns the same single site regardless of what the user
+  /// typed. Firing on every keystroke therefore wastes a network round
+  /// trip per character. The cubit treats a long idle (this value) the
+  /// same as an explicit commit (focus loss / "done" key).
+  static const Duration searchDebounce = Duration(milliseconds: 1500);
+
+  /// Animation duration for suggestion list cross-fades.
+  static const Duration suggestionFade = Duration(milliseconds: 200);
+
+  /// Default loading indicator delay before showing.
+  static const Duration loadingIndicatorShow = Duration(milliseconds: 250);
 }
 
 /// App size constants
@@ -355,9 +438,39 @@ class AppSize {
   static const double helpDividerThickness = .5;
   static const double qrButtonHeight = 42;
   static const double qrIconSize = 22;
+  static const double smallIconButtonSize = 40;
   static const double qrButtonFontSize = 13;
   static const double qrButtonLetterSpacing = 1;
   static const double qrButtonRadius = 3;
   static const double borderWidthNone = 0;
   static const double horizontalPaddingNone = 0;
+
+  /// Site suggestion widget sizes
+  static const double suggestionIconSize = 22;
+  static const double suggestionBadgeFontSize = 11;
+  static const double suggestionTileVerticalPadding = 12;
+  static const double suggestionBadgePadding = 6;
+  static const double suggestionMinHeight = 56;
+  static const double suggestionLabelWidth = 56;
+  static const double suggestionAvatarSize = 32;
+  static const double suggestionIdentityLabelMaxWidth = 96;
+
+  /// Site verification card sizes.
+  static const double verificationCardVerticalPadding = 12;
+  static const double verificationRegionHeaderHeight = 28;
+  static const double verificationRegionHeaderFontSize = 13;
+  static const double verificationRegionGap = 4;
+  static const double verificationRegionInset = 12;
+  static const double verificationAvatarSize = 56;
+  static const double verificationChipFontSize = 11;
+  static const double verificationChipHorizontalPadding = 8;
+  static const double verificationChipVerticalPadding = 4;
+  static const double verificationChipGap = 6;
+  static const double verificationValueFontSize = 14;
+  static const double verificationKeyFontSize = 12;
+  static const double verificationKeyColumnWidth = 110;
+  static const double verificationBottomSheetMaxHeight = 480;
+  static const double verificationIconSm = 14;
+  static const double verificationIconMd = 16;
+  static const double verificationIconLg = 20;
 }

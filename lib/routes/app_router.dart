@@ -18,6 +18,10 @@ import 'package:flutter_boilerplate/feature_dashboard/pages/user_details_page.da
 import 'package:flutter_boilerplate/feature_more/pages/more_page.dart';
 import 'package:flutter_boilerplate/feature_notification/pages/notification_screen.dart';
 import 'package:flutter_boilerplate/feature_post/pages/posts_page.dart';
+import 'package:flutter_boilerplate/feature_set_base_url/pages/app_settings_page.dart'
+    as base_url_settings;
+import 'package:flutter_boilerplate/feature_set_base_url/pages/help_page.dart';
+import 'package:flutter_boilerplate/feature_set_base_url/pages/qr_scanner_page.dart';
 import 'package:flutter_boilerplate/feature_set_base_url/pages/set_base_url_page.dart';
 import 'package:flutter_boilerplate/feature_splash/pages/splash_page.dart';
 import 'package:flutter_boilerplate/feature_webview_about/pages/about_page.dart';
@@ -92,7 +96,7 @@ class AppRouter {
         // Set base URL screen (added on main)
         // Set Base URL Route (Connect to Moodle)
         GoRoute(
-          path: '/',
+          path: AppRoutes.splash,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: SetBaseUrlPage()),
         ),
@@ -200,6 +204,24 @@ class AppRouter {
           name: AppRoutes.more,
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: MorePage()),
+        ),
+
+        // Set Base URL feature routes (gear icon / help / QR scanner)
+        GoRoute(
+          path: AppRoutes.qrScanner,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: QrScannerPage()),
+        ),
+        GoRoute(
+          path: AppRoutes.baseUrlSettings,
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: base_url_settings.AppSettingsPage(),
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.help,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: HelpPage()),
         ),
       ],
     );
