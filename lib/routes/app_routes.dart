@@ -43,6 +43,10 @@ abstract class AppRoutes {
   /// Blog entries route
   static const String blogEntries = '/blog-entries';
 
+  // Course routes
+  /// Course overview route
+  static const String courseOverview = '/course_overview';
+
   /// Settings routes
   static const String settings = '/settings';
 

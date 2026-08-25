@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/feature_app_settings/pages/app_settings_page.dart';
 import 'package:flutter_boilerplate/feature_auth/pages/login_page.dart';
+import 'package:flutter_boilerplate/feature_course/pages/course_overview_screen.dart';
 import 'package:flutter_boilerplate/feature_course_details/pages/course_details_screen.dart';
 import 'package:flutter_boilerplate/feature_dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/available_courses_page.dart';
@@ -15,6 +16,7 @@ import 'package:flutter_boilerplate/feature_dashboard/pages/my_courses_page.dart
 import 'package:flutter_boilerplate/feature_dashboard/pages/notifications_page.dart';
 import 'package:flutter_boilerplate/feature_dashboard/pages/user_details_page.dart';
 import 'package:flutter_boilerplate/feature_more/pages/more_page.dart';
+import 'package:flutter_boilerplate/feature_notification/pages/notification_screen.dart';
 import 'package:flutter_boilerplate/feature_post/pages/posts_page.dart';
 import 'package:flutter_boilerplate/feature_set_base_url/pages/set_base_url_page.dart';
 import 'package:flutter_boilerplate/feature_splash/pages/splash_page.dart';
@@ -25,8 +27,10 @@ import 'package:flutter_boilerplate/routes/route_observer.dart';
 import 'package:flutter_boilerplate/src/injection/di.dart' as di;
 import 'package:flutter_boilerplate_core/flutter_boilerplate_core.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_boilerplate/feature_notification/pages/notification_screen.dart';
 
+/// GoRouter configuration for the application
+///
+/// Handles routing, navigation guards, deep linking, and error handling
 class AppRouter {
   AppRouter._();
 
@@ -75,6 +79,14 @@ class AppRouter {
           path: AppRoutes.posts,
           pageBuilder: (context, state) =>
           const NoTransitionPage(child: PostsPage()),
+        ),
+
+        // Course Overview Route
+        GoRoute(
+          path: AppRoutes.courseOverview,
+          name: AppRoutes.courseOverview,
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: CourseOverviewScreen()),
         ),
 
         // Set base URL screen (added on main)
