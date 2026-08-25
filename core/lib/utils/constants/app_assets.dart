@@ -17,5 +17,7 @@ class AppAssets {
 
   static const String moodleLogo = '$imagesPath/moodle_logo.png';
 
+  static const String moodleLogo = '$imagesPath/moodle_logo.png';
+
   // Icons
 }

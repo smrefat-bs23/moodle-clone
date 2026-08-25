@@ -22,14 +22,71 @@ abstract class AppRoutes {
   /// Posts route (JSONPlaceholder CRUD demo)
   static const String posts = '/posts';
 
+  /// Dashboard route for the student courses view
+  static const String dashboard = '/dashboard';
+
+  /// Available courses route
+  static const String availableCourses = '/available-courses';
+
+  /// User details route
+  static const String userDetails = '/user-details';
+
+  /// User specific details route
+  static const String details = '/details';
+
+  /// Badges route
+  static const String badges = '/badges';
+
+  /// Blog entries route
+  static const String blogEntries = '/blog-entries';
+
   /// Settings routes
   static const String settings = '/settings';
 
   /// Profile route
   static const String profile = '/profile';
 
+  /// Dashboard route for the student courses view
+  static const String dashboard = '/dashboard';
+
+  /// Available courses route
+  static const String availableCourses = '/available-courses';
+
+  /// User details route
+  static const String userDetails = '/user-details';
+
+  /// User specific details route
+  static const String details = '/details';
+
+  /// Badges route
+  static const String badges = '/badges';
+
+  /// Blog entries route
+  static const String blogEntries = '/blog-entries';
+
+  /// My Courses route (bottom-nav destination).
+  static const String myCourses = '/my-courses';
+
+  /// Messages route (bottom-nav destination).
+  static const String messages = '/messages';
+
+  /// Notifications route (bottom-nav destination).
+  static const String notifications = '/notifications';
+
   /// More route
   static const String more = '/more';
+
+  /// Search route (dashboard header).
+  static const String search = '/search';
+
+  /// Calendar route.
+  static const String calendar = '/calendar';
+
+  /// Calendar settings route.
+  static const String calendarSettings = '/calendar/settings';
+
+  /// Calendar reminder settings route.
+  static const String calendarReminderSettings = '/calendar/reminder';
 
   /// App settings route
   static const String appSettings = '/app-settings';

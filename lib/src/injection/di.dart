@@ -12,6 +12,7 @@ import 'package:flutter_boilerplate/feature_auth/data/datasources/login_remote_d
 import 'package:flutter_boilerplate/feature_auth/data/repositories/login_repository_impl.dart';
 import 'package:flutter_boilerplate/feature_auth/domain/repositories/login_repository.dart';
 import 'package:flutter_boilerplate/feature_auth/domain/usecases/login_usecase.dart';
+import 'package:flutter_boilerplate/feature_dashboard/cubit/dashboard_cubit.dart';
 import 'package:flutter_boilerplate/feature_post/cubit/post_cubit.dart';
 import 'package:flutter_boilerplate_core/utils/injection/di.dart' as core_di;
 import 'package:flutter_boilerplate_data/feature_post/datasources/post_remote_datasource.dart';
@@ -92,5 +93,8 @@ Future<void> configureDependencies([String? environment]) async {
     )
     ..registerFactory<LoginCubit>(
       () => LoginCubit(loginUseCase: getIt<LoginUseCase>()),
+    )
+    ..registerFactory<DashboardCubit>(
+      DashboardCubit.new,
     );
 }

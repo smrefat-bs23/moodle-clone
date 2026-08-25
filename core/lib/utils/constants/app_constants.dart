@@ -145,20 +145,6 @@ class AppStrings {
   /// Site URL label
   static const String labelSiteUrl = 'https://lmsmobile.ahnafmuttaki.com';
 
-  /// Auth labels
-  /// Login label
-  static const String labelLogin = 'Log in';
-  /// Username label
-  static const String labelUsername = 'Username';
-  /// Password label
-  static const String labelPassword = 'Password';
-  /// Lost password label
-  static const String labelLostPassword = 'Lost Password?';
-  /// Site name label
-  static const String labelSiteName = 'eLearning23';
-  /// Site URL label
-  static const String labelSiteUrl = 'https://lmsmobile.ahnafmuttaki.com';
-
   /// More page labels
   /// More label
   static const String labelMore = 'More';
@@ -248,7 +234,7 @@ class AppSpacing {
   /// Extra extra large spacing (48)
   static const double xxl = 48;
 
-  /// Custom spacing from origin/main or HEAD
+  /// Custom spacing
   static const double xxs = 5;
   static const double mdSm = 10;
   static const double mdLg = 12;

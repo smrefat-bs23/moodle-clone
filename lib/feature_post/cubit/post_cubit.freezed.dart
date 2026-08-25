@@ -12,8 +12,7 @@ part of 'post_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PostState {
@@ -24,7 +23,8 @@ mixin _$PostState {
     required TResult Function(List<PostEntity> posts) loaded,
     required TResult Function(List<PostEntity> posts) mutating,
     required TResult Function(String message, bool canRetry) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -32,7 +32,8 @@ mixin _$PostState {
     TResult? Function(List<PostEntity> posts)? loaded,
     TResult? Function(List<PostEntity> posts)? mutating,
     TResult? Function(String message, bool canRetry)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -41,7 +42,8 @@ mixin _$PostState {
     TResult Function(List<PostEntity> posts)? mutating,
     TResult Function(String message, bool canRetry)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostInitial value) initial,
@@ -49,7 +51,8 @@ mixin _$PostState {
     required TResult Function(PostLoaded value) loaded,
     required TResult Function(PostMutating value) mutating,
     required TResult Function(PostError value) error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PostInitial value)? initial,
@@ -57,7 +60,8 @@ mixin _$PostState {
     TResult? Function(PostLoaded value)? loaded,
     TResult? Function(PostMutating value)? mutating,
     TResult? Function(PostError value)? error,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostInitial value)? initial,
@@ -66,7 +70,8 @@ mixin _$PostState {
     TResult Function(PostMutating value)? mutating,
     TResult Function(PostError value)? error,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -92,9 +97,8 @@ class _$PostStateCopyWithImpl<$Res, $Val extends PostState>
 /// @nodoc
 abstract class _$$PostInitialImplCopyWith<$Res> {
   factory _$$PostInitialImplCopyWith(
-    _$PostInitialImpl value,
-    $Res Function(_$PostInitialImpl) then,
-  ) = __$$PostInitialImplCopyWithImpl<$Res>;
+          _$PostInitialImpl value, $Res Function(_$PostInitialImpl) then) =
+      __$$PostInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -102,9 +106,8 @@ class __$$PostInitialImplCopyWithImpl<$Res>
     extends _$PostStateCopyWithImpl<$Res, _$PostInitialImpl>
     implements _$$PostInitialImplCopyWith<$Res> {
   __$$PostInitialImplCopyWithImpl(
-    _$PostInitialImpl _value,
-    $Res Function(_$PostInitialImpl) _then,
-  ) : super(_value, _then);
+      _$PostInitialImpl _value, $Res Function(_$PostInitialImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of PostState
   /// with the given fields replaced by the non-null parameter values.
@@ -217,9 +220,8 @@ abstract class PostInitial implements PostState {
 /// @nodoc
 abstract class _$$PostLoadingImplCopyWith<$Res> {
   factory _$$PostLoadingImplCopyWith(
-    _$PostLoadingImpl value,
-    $Res Function(_$PostLoadingImpl) then,
-  ) = __$$PostLoadingImplCopyWithImpl<$Res>;
+          _$PostLoadingImpl value, $Res Function(_$PostLoadingImpl) then) =
+      __$$PostLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -227,9 +229,8 @@ class __$$PostLoadingImplCopyWithImpl<$Res>
     extends _$PostStateCopyWithImpl<$Res, _$PostLoadingImpl>
     implements _$$PostLoadingImplCopyWith<$Res> {
   __$$PostLoadingImplCopyWithImpl(
-    _$PostLoadingImpl _value,
-    $Res Function(_$PostLoadingImpl) _then,
-  ) : super(_value, _then);
+      _$PostLoadingImpl _value, $Res Function(_$PostLoadingImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of PostState
   /// with the given fields replaced by the non-null parameter values.
@@ -342,9 +343,8 @@ abstract class PostLoading implements PostState {
 /// @nodoc
 abstract class _$$PostLoadedImplCopyWith<$Res> {
   factory _$$PostLoadedImplCopyWith(
-    _$PostLoadedImpl value,
-    $Res Function(_$PostLoadedImpl) then,
-  ) = __$$PostLoadedImplCopyWithImpl<$Res>;
+          _$PostLoadedImpl value, $Res Function(_$PostLoadedImpl) then) =
+      __$$PostLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<PostEntity> posts});
 }
@@ -354,23 +354,22 @@ class __$$PostLoadedImplCopyWithImpl<$Res>
     extends _$PostStateCopyWithImpl<$Res, _$PostLoadedImpl>
     implements _$$PostLoadedImplCopyWith<$Res> {
   __$$PostLoadedImplCopyWithImpl(
-    _$PostLoadedImpl _value,
-    $Res Function(_$PostLoadedImpl) _then,
-  ) : super(_value, _then);
+      _$PostLoadedImpl _value, $Res Function(_$PostLoadedImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of PostState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? posts = null}) {
-    return _then(
-      _$PostLoadedImpl(
-        posts: null == posts
-            ? _value._posts
-            : posts // ignore: cast_nullable_to_non_nullable
-                  as List<PostEntity>,
-      ),
-    );
+  $Res call({
+    Object? posts = null,
+  }) {
+    return _then(_$PostLoadedImpl(
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostEntity>,
+    ));
   }
 }
 
@@ -378,7 +377,7 @@ class __$$PostLoadedImplCopyWithImpl<$Res>
 
 class _$PostLoadedImpl implements PostLoaded {
   const _$PostLoadedImpl({required final List<PostEntity> posts})
-    : _posts = posts;
+      : _posts = posts;
 
   final List<PostEntity> _posts;
   @override
@@ -510,9 +509,8 @@ abstract class PostLoaded implements PostState {
 /// @nodoc
 abstract class _$$PostMutatingImplCopyWith<$Res> {
   factory _$$PostMutatingImplCopyWith(
-    _$PostMutatingImpl value,
-    $Res Function(_$PostMutatingImpl) then,
-  ) = __$$PostMutatingImplCopyWithImpl<$Res>;
+          _$PostMutatingImpl value, $Res Function(_$PostMutatingImpl) then) =
+      __$$PostMutatingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<PostEntity> posts});
 }
@@ -522,23 +520,22 @@ class __$$PostMutatingImplCopyWithImpl<$Res>
     extends _$PostStateCopyWithImpl<$Res, _$PostMutatingImpl>
     implements _$$PostMutatingImplCopyWith<$Res> {
   __$$PostMutatingImplCopyWithImpl(
-    _$PostMutatingImpl _value,
-    $Res Function(_$PostMutatingImpl) _then,
-  ) : super(_value, _then);
+      _$PostMutatingImpl _value, $Res Function(_$PostMutatingImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of PostState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? posts = null}) {
-    return _then(
-      _$PostMutatingImpl(
-        posts: null == posts
-            ? _value._posts
-            : posts // ignore: cast_nullable_to_non_nullable
-                  as List<PostEntity>,
-      ),
-    );
+  $Res call({
+    Object? posts = null,
+  }) {
+    return _then(_$PostMutatingImpl(
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<PostEntity>,
+    ));
   }
 }
 
@@ -546,7 +543,7 @@ class __$$PostMutatingImplCopyWithImpl<$Res>
 
 class _$PostMutatingImpl implements PostMutating {
   const _$PostMutatingImpl({required final List<PostEntity> posts})
-    : _posts = posts;
+      : _posts = posts;
 
   final List<PostEntity> _posts;
   @override
@@ -678,9 +675,8 @@ abstract class PostMutating implements PostState {
 /// @nodoc
 abstract class _$$PostErrorImplCopyWith<$Res> {
   factory _$$PostErrorImplCopyWith(
-    _$PostErrorImpl value,
-    $Res Function(_$PostErrorImpl) then,
-  ) = __$$PostErrorImplCopyWithImpl<$Res>;
+          _$PostErrorImpl value, $Res Function(_$PostErrorImpl) then) =
+      __$$PostErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message, bool canRetry});
 }
@@ -690,27 +686,27 @@ class __$$PostErrorImplCopyWithImpl<$Res>
     extends _$PostStateCopyWithImpl<$Res, _$PostErrorImpl>
     implements _$$PostErrorImplCopyWith<$Res> {
   __$$PostErrorImplCopyWithImpl(
-    _$PostErrorImpl _value,
-    $Res Function(_$PostErrorImpl) _then,
-  ) : super(_value, _then);
+      _$PostErrorImpl _value, $Res Function(_$PostErrorImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of PostState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null, Object? canRetry = null}) {
-    return _then(
-      _$PostErrorImpl(
-        message: null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-        canRetry: null == canRetry
-            ? _value.canRetry
-            : canRetry // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
+  $Res call({
+    Object? message = null,
+    Object? canRetry = null,
+  }) {
+    return _then(_$PostErrorImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      canRetry: null == canRetry
+          ? _value.canRetry
+          : canRetry // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
   }
 }
 
@@ -833,10 +829,8 @@ class _$PostErrorImpl implements PostError {
 }
 
 abstract class PostError implements PostState {
-  const factory PostError({
-    required final String message,
-    final bool canRetry,
-  }) = _$PostErrorImpl;
+  const factory PostError(
+      {required final String message, final bool canRetry}) = _$PostErrorImpl;
 
   String get message;
   bool get canRetry;

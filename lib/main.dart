@@ -9,17 +9,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize logger
-  AppLogger.init();
+  try {
+    // Initialize Flavor
+    try {
+      FlavorConfig.instance;
+    } catch (_) {
+      FlavorConfig.instance = FlavorConfig.dev();
+    }
 
-  // Set bloc observer for debugging
-  Bloc.observer = SimpleBlocObserver();
+    // Initialize logger
+    AppLogger.init();
 
-  // Initialize dependency injection
-  // This also initializes Hive and pre-resolves SharedPreferences
-  await di.configureDependencies();
+    // Initialize dependency injection
+    // This also initializes Hive and pre-resolves SharedPreferences
+    await di.configureDependencies();
 
-  runApp(const MyApp());
+    // Set bloc observer for debugging
+    Bloc.observer = SimpleBlocObserver();
+
+    runApp(const MyApp());
+  } catch (error, stackTrace) {
+    debugPrint('Fatal initialization error: $error\n$stackTrace');
+    runApp(ErrorScreen(
+      error: error.toString(),
+      stackTrace: stackTrace.toString(),
+    ));
+  }
 }
 
 /// Main app widget
@@ -37,16 +52,23 @@ class MyApp extends StatelessWidget {
         designSize: const Size(AppSize.designWidth, AppSize.designHeight),
         minTextAdapt: true,
         splitScreenMode: true,
+        // This is the key to preventing fontSize: 0 crash
+        ensureScreenSize: true,
         builder: (context, child) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             title: FlavorConfig.instance.appName,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             routerConfig: AppRouter.getRouter(
               isLoggedIn: () async {
-                final (token, _) = await di.getIt<LocalStorage>()
-                    .get<String>(AppConstants.tokenKey);
-                return token != null && token.isNotEmpty;
+                try {
+                  final (token, _) = await di.getIt<LocalStorage>()
+                      .get<String>(AppConstants.tokenKey);
+                  return token != null && token.isNotEmpty;
+                } catch (_) {
+                  return false;
+                }
               },
             ),
             builder: (context, child) {
